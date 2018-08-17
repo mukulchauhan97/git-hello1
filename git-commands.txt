@@ -1,0 +1,52 @@
+1) git config --global user.name "Mukul"
+function
+it configures the author name to be used with your commits.
+
+2)git config --global email "mukulchauhan1997@gmail.com"
+function
+it configures the email to be used with your commits.
+ 
+3) git init
+function
+it is used to initialize the repository.
+
+4)git add <filename>
+function
+it is used to add files.
+
+5) git commit -m "commit message"
+function
+commit changes to head. m implies message.
+
+6)git commit -a
+function
+Commit any files you've added with git add, and also commit any files you've changed since then:	
+
+7)stay out:.gitignore file
+function
+file which shouldn't be added to directory.File should be ignored.
+
+8) git status
+function
+list the files you have changed and thoseyou still need to add or commit.
+
+9) git remote add origin [url]
+function
+If you haven't connected your local repository to a remote server, add the server to be able to push to it
+
+10)git pull
+function 
+fetch and merge changes on the remote server to your working directory.
+
+11)git push
+function
+it is used to push the files.
+
+12)git rm a.txt
+function
+it is used to remove the files.
+
+13) git hist
+functions
+it tells the history.
+ 
