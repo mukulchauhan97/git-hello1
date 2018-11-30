@@ -29,7 +29,7 @@
                 ResultSet rs=st.executeQuery(query1);
                 
             if(rs.next())
-                out.println("welcome"+ username+"to this website");
+                out.println("<script>setTimeout(function(){window.location='homee1.html'},1*1000)</script>");
                 else
                  out.println("not found");
                 st.close();

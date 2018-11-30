@@ -1,10 +1,11 @@
 <%-- 
-    Document   : ask
-    Created on : 14 Nov, 2018, 10:48:02 AM
+    Document   : give
+    Created on : 26 Nov, 2018, 7:16:24 PM
     Author     : Intel
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.sql.*,java.util.*"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -34,7 +35,7 @@ textarea {
 }
 body 
 {
-    background-image: url("wp1949787.jpg");
+    background-image: url("ss.jpg");
 }
 input[type=text] {
     width: 50%;
@@ -44,21 +45,22 @@ input[type=text] {
     border-radius: 8px;
     border-color: grey;
 }
+#p {
+    background-color: white;
+    border: 5px solid black;
+    padding: 25px;
+    margin: 25px;
+}
+
 </style>
     </head>
 <body>
-    <form action="aq.jsp" method="POST">
+    <form action="q_sub.jsp" method="post">
 <h2></h2>
 <center>
-<button class="button button3" onclick="myFunction()">Add Your Questions.....</button>
+<button class="button button3" onclick="myFunction()">Add Your Answer.....</button>
 </center>
 <center>
-<textarea name="ques"></textarea>
-<br><br>
-    
-<input type="text" name="username" placeholder="username"><br><br>
-<input type="text" name="email" placeholder="email"><br><br>
-<input type="text" name="id" placeholder="id"><br><br>
 </center>
 
 <script>
@@ -74,8 +76,34 @@ function myFunction() {
 }
 </script>
 <center>
-<input type="submit" value="Submit Your Question" class="button button3">
+    <div id="p">
+        
+    <%
+        
+        Class.forName("com.mysql.jdbc.Driver");
+Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/login", "root", "");
+Statement st=conn.createStatement();
+String query1="select * from mk1 where answers is NULL";
+ResultSet rs=st.executeQuery(query1);
+String arr[]=new String[100];
+int i=0;
+while(rs.next())
+{
+    String a=rs.getString("question");
+    arr[i]=a;
+    i++;
+    %><h1><%out.println(a);
+    %></h1>
+    <br>
+    <input type="text" name="ans">
+    <input type="submit" onclick="<%session.setAttribute("ques",arr[0]);%>" value="Submit Your Answer" class="button button3">
+    <br>
+    <%
+}
+
+    %>
 </center>
     </form>
+</div>
 </body>
 </html>
